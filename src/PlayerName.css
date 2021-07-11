@@ -1,0 +1,13 @@
+.player_block .title {
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .22px;
+    color: #fff;
+    -webkit-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    -moz-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+}

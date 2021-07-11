@@ -1,0 +1,91 @@
+.player_block .stats_wrap {
+    position: absolute;
+    top: 155px;
+    left: 11px;
+    height: 107px;
+    margin: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.player_block .stats_wrap>div {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: rgba(255,93,177,.2);
+    background-color: #4f222e;
+    border: 1px solid #dc659c;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .22px;
+    color: #fff;
+    -webkit-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    -moz-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    width: 70px;
+    height: 20px;
+    margin-right: 10px;
+    color: #fff;
+    border-radius: 5px;
+    line-height: 24px;
+}
+
+.player_block .stats_wrap>div>span[carac] {
+    margin-left: -5px;
+    margin-right: 5px;
+}
+
+.player_block .stats_wrap>div>span[carac]:before {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -4px;
+}
+
+.player_block .stats_wrap>div input {
+    vertical-align: top;
+    line-height: 20px;
+    text-align: right;
+}
+
+.player_block .stats_wrap>* {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.player_block .stats_wrap>div:nth-child(even) {
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+/* From Style Tweaks override */
+.player_block .stats_wrap > div:nth-child(2n) {
+    margin-right: 9px;
+}
+
+.StatBox input {
+    max-width: 48px;
+    text-align: left !important;
+}
+
+.StatBox.disabled {
+    opacity: 0.6;
+}

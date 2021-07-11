@@ -1,0 +1,29 @@
+.ResultsMonostatCount {
+    display: flex;
+    width: 20px;
+    height: 30px;
+    flex-wrap: wrap;
+}
+
+.ResultsMonostatCount-carac {
+    flex: 1 0 auto;
+    width: 10px;
+    height: 10px;
+    background-size: cover;
+}
+
+.ResultsMonostatCount .rainbow {
+    background-image: url(https://hh.hh-content.com/pictures/misc/items_icons/16.svg);   
+}
+
+.ResultsMonostatCount .HC {
+    background-image: url(https://hh.hh-content.com/caracs/hardcore.png);   
+}
+
+.ResultsMonostatCount .CH {
+    background-image: url(https://hh.hh-content.com/caracs/charm.png);   
+}
+
+.ResultsMonostatCount .KH {
+    background-image: url(https://hh.hh-content.com/caracs/knowhow.png);   
+}

@@ -1,0 +1,22 @@
+.ResultsBoosterDisplay {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ResultsBoosterDisplay.unboosted {
+    opacity: 0.5;
+}
+
+.ResultsBoosterDisplay-icon {
+    flex: 0 1 auto;
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+}
+
+.ResultsBoosterDisplay-details {
+    flex: 1 1 auto;
+    margin: 10px;
+}

@@ -1,0 +1,29 @@
+.player_block .clubs_title {
+    position: absolute;
+    top: 24px;
+    width: 100%;
+    color: #d08467;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    -webkit-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    -moz-text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
+    text-align: center;
+    text-decoration: none;
+}
+
+.ClubBonus input[type=radio] {
+    position: absolute;
+    opacity: 0;
+}
+
+.ClubBonus input + span {
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+}
+
+.ClubBonus input:checked + span,
+.ClubBonus input:hover + span {
+    color: white;
+}

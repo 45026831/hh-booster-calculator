@@ -1,0 +1,38 @@
+.ResultsMonostats {
+    font-size: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.ResultsMonostats-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ResultsMonostats-adjust {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ResultsMonostats-adjust .ResultsMonostatCount {
+    flex: 1 0 auto;
+}
+
+.ResultsMonostats-adjust-slider {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ResultsMonostats-adjust-slider.HC div:first-child {
+    background-color: purple;
+}
+
+.ResultsMonostats-adjust-slider.CH div:first-child {
+    background-color: red;
+}
+
+.ResultsMonostats-adjust-slider.KH div:first-child {
+    background-color: aqua;
+}

@@ -1,0 +1,54 @@
+.player_block .lead_player_profile .icon {
+    position: absolute;
+    top: 14px;
+    left: 70px;
+    width: 32px;
+    height: 32px;
+}
+
+[carac]::before {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    content: ' ';
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+[carac="1"]::before, [carac=carac1]::before, [carac=class1]::before, .ClassSelect[carac=class1] {
+    background-image: url(https://hh.hh-content.com/caracs/hardcore.png);
+}
+
+[carac="2"]::before, [carac=carac2]::before, [carac=class2]::before, .ClassSelect[carac=class2] {
+    background-image: url(https://hh.hh-content.com/caracs/charm.png);
+}
+
+[carac="3"]::before, [carac=carac3]::before, [carac=class3]::before, .ClassSelect[carac=class3] {
+    background-image: url(https://hh.hh-content.com/caracs/knowhow.png);
+}
+
+.ClassSelect {
+    background-color: transparent;
+    text-rendering: inherit;
+    color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    display: block;
+    border: none;
+    /* position: absolute;
+    top: 14px;
+    left: 70px;
+    width: 32px;
+    height: 32px; */
+}
+
+.ClassSelect[carac] {
+    background-position: 50% 50%;
+    background-size: 28px;
+    background-repeat: no-repeat;
+}
+
+.ClassSelect option {
+    color: black;
+}

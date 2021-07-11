@@ -1,0 +1,56 @@
+.Calculator .player_block {
+    position: relative;
+    background-image: linear-gradient(to right,#65273a 0,#743f58 100%);
+    height: 360px;
+    width: 170px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgb(45 8 17 / 50%), inset 0 0 8px rgb(220 101 156 / 60%);
+    border: none;
+}
+
+.Calculator {
+    transform-origin: top center;
+    transform: scale(1.2);
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.Calculator > div {
+    display: inline-block;
+    margin: 0px 10px;
+    /* border: 1px solid red; */
+}
+
+[carac=def1]::before {
+    background-image: url(https://hh.hh-content.com/caracs/deff_hardcore.png)
+}
+
+[carac=def2]::before {
+    background-image: url(https://hh.hh-content.com/caracs/deff_charm.png)
+}
+
+[carac=def3]::before {
+    background-image: url(https://hh.hh-content.com/caracs/deff_knowhow.png)
+}
+
+[carac=endurance]::before {
+    background-image: url(https://hh.hh-content.com/caracs/endurance.png)
+}
+
+[carac=chance]::before {
+    background-image: url(https://hh.hh-content.com/caracs/harmony.png)
+}
+
+[carac=ego]::before {
+    background-image: url(https://hh.hh-content.com/caracs/ego.png)
+}
+
+[carac=damage]::before {
+    background-image: url(https://hh.hh-content.com/caracs/damage.png)
+}
+
+[carac=excit]::before {
+    background-image: url(https://hh.hh-content.com/caracs/excitement.png)
+}

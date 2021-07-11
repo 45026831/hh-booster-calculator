@@ -13,7 +13,7 @@ class ResultsMonostats extends React.Component {
     render = () => (
         <div className="ResultsMonostats">
             <div className="ResultsMonostats-count">
-                <span>Equips{this.props.adjustedMonotat ? "" : " (estimated)"}</span>
+                <span>Equips{this.props.adjustedMonostat ? "" : " (estimated)"}</span>
                 <ResultsMonostatCount count={this.props.monostatCount} carac={this.props.carac} />
             </div>
             <span>Adjust if necessary</span>

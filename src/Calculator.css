@@ -3,24 +3,32 @@
     background-image: linear-gradient(to right,#65273a 0,#743f58 100%);
     height: 360px;
     width: 170px;
+    min-width: 170px;
     border-radius: 4px;
     box-shadow: 0 0 5px rgb(45 8 17 / 50%), inset 0 0 8px rgb(220 101 156 / 60%);
     border: none;
 }
 
 .Calculator {
-    transform-origin: top center;
-    transform: scale(1.2);
     margin-top: 24px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 500px) {
+    .Calculator {
+        transform-origin: top center;
+        transform: scale(1.2);
+    }
 }
 
 .Calculator > div {
-    display: inline-block;
+    flex: 0 0;
     margin: 0px 10px;
-    /* border: 1px solid red; */
 }
 
 [carac=def1]::before {

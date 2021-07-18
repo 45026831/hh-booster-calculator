@@ -8,6 +8,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
+}
+
+.ResultsMonostats-count .ResultsMonostatCount {
+    transform: scale(1.15);
 }
 
 .ResultsMonostats-adjust {

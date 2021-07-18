@@ -22,8 +22,10 @@
   text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000;
 }
 
-.App-body {
-  min-height: 50vh;
+@media (min-width: 500px) {
+  .App-body {
+    height: calc(360px * 1.2);
+  }
 }
 
 .App-link {

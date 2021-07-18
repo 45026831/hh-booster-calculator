@@ -1,6 +1,7 @@
 import './App.css';
 
-import Calculator from './Calculator';
+import Calculator from './Calculator'
+import DocsContainer from './docs/DocsContainer'
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </header>
       <section className="App-body">
         <Calculator />
+      </section>
+      <section className="App-docs">
+        <DocsContainer />
       </section>
     </div>
   );

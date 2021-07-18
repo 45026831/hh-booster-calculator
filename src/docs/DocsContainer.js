@@ -3,6 +3,7 @@ import React from "react"
 import './DocsContainer.css'
 import Equips from "./Equips"
 import Ginseng from "./Ginseng"
+import Jujubes from "./Jujubes"
 
 class DocsContainer extends React.Component {
     render = () => (
@@ -12,6 +13,7 @@ class DocsContainer extends React.Component {
             <p>This calculator uses the player stats presented to determine which (if any) booster types are being used by comparing the stats against each other. Below is an explanation of how each booster is calculated and the 'gotchas' to look out for when using this tool.</p>
             <Equips/>
             <Ginseng/>
+            <Jujubes/>
             TODO
         </div>
     )

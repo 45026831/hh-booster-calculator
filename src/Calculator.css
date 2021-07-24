@@ -13,10 +13,11 @@
     margin-top: 24px;
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
+    width: auto;
+    max-width: 500px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 @media (min-width: 500px) {
@@ -61,4 +62,16 @@
 
 [carac=excit]::before {
     background-image: url(https://hh.hh-content.com/caracs/excitement.png)
+}
+
+.Calculator-playerLeaguesData {
+    flex: 1 0 auto !important;
+    font-family: monospace;
+    font-size: 10px;
+    max-width: 300px;
+}
+
+.Calculator-playerLeaguesData > textarea {
+    width: 100%;
+    height: 100%;
 }

@@ -15,10 +15,13 @@ class ResultsBoosterDisplay extends React.Component {
     render = () => {
         const {booster, result: {expected, actual} } = this.props
 
-        const boosted = actual > expected
-
+        
         const extra = actual - expected
-        const extraPercent = `${Math.round((extra / expected) * 100)}%`
+        const extraPercentRaw = Math.round((extra / expected) * 100)
+        const extraPercent = `${extraPercentRaw}%`
+        
+        const boosted = extraPercentRaw > 0
+        // const boosted = actual > expected
 
         let expectedDisplay = expected
 

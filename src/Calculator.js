@@ -30,6 +30,12 @@ const classes = {
     }
 }
 
+const classesReverse = {
+    1: 'HC',
+    2: 'CH',
+    3: 'KH'
+}
+
 class Calculator extends React.Component {
     constructor () {
         super()
@@ -44,9 +50,11 @@ class Calculator extends React.Component {
             end: '339K',
             attack: '69.4K',
             harmony: '45.7K',
-            alphaMainStat: 5616,
-            alphaCarac: 'CH',
-            alphaOwnStat: 5616
+            girlStatSum: 5616,
+            // alphaCarac: 'CH',
+            // alphaOwnStat: 5616,
+            playerLeaguesData: null,
+            playerLeaguesDataString: ""
         }
     }
 
@@ -57,25 +65,67 @@ class Calculator extends React.Component {
         })
     }
 
+    onInputBoxChange = (e) => {
+        const playerLeaguesDataString = e.target.value
+        let playerLeaguesData = null
+        const extractedData = {}
+
+        if (playerLeaguesDataString && playerLeaguesDataString.length) {
+            try {
+                const semiParsedString = JSON.parse(playerLeaguesDataString)
+                playerLeaguesData = JSON.parse(semiParsedString)
+
+                const {caracs, team} = playerLeaguesData
+
+                Object.assign(extractedData, {
+                    clubBonus: !!playerLeaguesData.club.id_club ? 1.1 : 1.0,
+                    level: parseInt(playerLeaguesData.level, 10),
+                    carac: classesReverse[playerLeaguesData.class],
+                    ego: caracs.ego,
+                    hc: caracs.carac1,
+                    ch: caracs.carac2,
+                    kh: caracs.carac3,
+                    end: caracs.endurance,
+                    attack: caracs.damage,
+                    harmony: caracs.chance,
+                    girlStatSum: team.map(({caracs}) => Object.values(caracs).reduce((s,c) => s+c, 0)).reduce((s,c) => s+c, 0),
+                })
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        console.log(extractedData)
+
+        this.setState({
+            playerLeaguesData,
+            playerLeaguesDataString,
+            ...extractedData
+        })
+    }
+
     render = () => (
         <div className={'Calculator'}>
-                <div className="player_block expanded">
-                    <PlayerName />
-                    <ClubBonus clubBonus={this.state.clubBonus} onChange={this.onChange} />
-                    <PlayerProfile carac={this.state.carac} classes={classes} level={this.state.level} onChange={this.onChange}/>
-                    <EgoBox ego={this.state.ego} onChange={this.onChange}/>
-                    <StatsGroup stats={{
-                        hc: this.state.hc,
-                        ch: this.state.ch,
-                        kh: this.state.kh,
-                        end: this.state.end,
-                        attack: this.state.attack,
-                        harmony: this.state.harmony,
+            {/* <div className="player_block expanded">
+                <PlayerName />
+                <ClubBonus clubBonus={this.state.clubBonus} onChange={this.onChange} />
+                <PlayerProfile carac={this.state.carac} classes={classes} level={this.state.level} onChange={this.onChange}/>
+                <EgoBox ego={this.state.ego} onChange={this.onChange}/>
+                <StatsGroup stats={{
+                    hc: this.state.hc,
+                    ch: this.state.ch,
+                    kh: this.state.kh,
+                    end: this.state.end,
+                    attack: this.state.attack,
+                    harmony: this.state.harmony,
 
-                    }} onChange={this.onChange} />
-                    <AlphaStats carac={this.state.carac} alphaCarac={this.state.alphaCarac} alphaMainStat={this.state.alphaMainStat} alphaOwnStat={this.state.alphaOwnStat} classes={classes} onChange={this.onChange} />
-                    
-                </div>
+                }} onChange={this.onChange} />
+                <AlphaStats carac={this.state.carac} alphaCarac={this.state.alphaCarac} alphaMainStat={this.state.alphaMainStat} alphaOwnStat={this.state.alphaOwnStat} classes={classes} onChange={this.onChange} />
+                
+            </div> */}
+            <div className={'Calculator-playerLeaguesData'}>
+                <textarea onChange={this.onInputBoxChange}></textarea>
+            </div>
             <Results stats={this.state}/>
         </div>
     )

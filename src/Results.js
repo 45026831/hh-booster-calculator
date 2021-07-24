@@ -30,25 +30,34 @@ class Results extends React.Component {
             level,
             carac,
             ego,
-            hc: hcStr,
-            ch: chStr,
-            kh: khStr,
-            end: endStr,
-            attack: attackStr,
-            harmony: harmonyStr,
-            alphaMainStat,
-            alphaOwnStat
+            hc,
+            ch,
+            kh,
+            end,
+            attack,
+            harmony,
+            // hc: hcStr,
+            // ch: chStr,
+            // kh: khStr,
+            // end: endStr,
+            // attack: attackStr,
+            // harmony: harmonyStr,
+            // alphaMainStat,
+            // alphaOwnStat
+            girlStatSum
         } = this.props.stats
 
-        let hc, ch, kh, end, attack, harmony, primary, secondary, tertiary, 
+        let 
+        // hc, ch, kh, end, attack, harmony,
+         primary, secondary, tertiary, 
         monostatCount, chlorella, cordyceps, ginseng, jujubes
 
-        hc = cleanUpAbbreviatedNumStr(hcStr)
-        ch = cleanUpAbbreviatedNumStr(chStr)
-        kh = cleanUpAbbreviatedNumStr(khStr)
-        end = cleanUpAbbreviatedNumStr(endStr)
-        attack = cleanUpAbbreviatedNumStr(attackStr)
-        harmony = cleanUpAbbreviatedNumStr(harmonyStr)
+        // hc = cleanUpAbbreviatedNumStr(hcStr)
+        // ch = cleanUpAbbreviatedNumStr(chStr)
+        // kh = cleanUpAbbreviatedNumStr(khStr)
+        // end = cleanUpAbbreviatedNumStr(endStr)
+        // attack = cleanUpAbbreviatedNumStr(attackStr)
+        // harmony = cleanUpAbbreviatedNumStr(harmonyStr)
 
         switch(carac){
             case 'HC':
@@ -76,8 +85,8 @@ class Results extends React.Component {
             monostatCount = this.state.monostatCount
         }
 
-        chlorella = this.calculateChlorella(ego, end, alphaOwnStat)
-        cordyceps = this.calculateCordyceps(attack, primary, alphaMainStat)
+        chlorella = this.calculateChlorella(ego, end, girlStatSum)
+        cordyceps = this.calculateCordyceps(attack, primary, girlStatSum)
         ginseng = this.calculateGinseng(primary, clubBonus, level, monostatCount)
         jujubes = this.calculateJujubes(harmony, clubBonus, level, monostatCount, tertiary)
         
@@ -106,8 +115,8 @@ class Results extends React.Component {
         ), 6), 0)
     }
 
-    calculateChlorella = (ego, end, alphaOwnStat) => {
-        const expected = end + (11 * alphaOwnStat)
+    calculateChlorella = (ego, end, girlStatSum) => {
+        const expected = end + (2 * girlStatSum)
 
         return {
             expected,
@@ -115,9 +124,9 @@ class Results extends React.Component {
         }
     }
 
-    calculateCordyceps = (attack, primary, alphaMainStat) => {
-        const expectedUnrounded = primary + (3 * alphaMainStat)
-        const expected = roundUpToNextHundred(expectedUnrounded)
+    calculateCordyceps = (attack, primary, girlStatSum) => {
+        const expectedUnrounded = primary + (0.25 * girlStatSum)
+        const expected = Math.ceil(expectedUnrounded)
         return {
             expected,
             actual: attack
@@ -127,16 +136,16 @@ class Results extends React.Component {
     calculateGinseng = (primary, clubBonus, level, monostatCount) => {
         const varianceMultiplier = 1 + (level * 0.00005) // 2.5% at level 500
         const expectedUnrounded = (level * (9 + 30 + ((7 * (6 - monostatCount)) + (11 * monostatCount)) * varianceMultiplier)) * clubBonus 
-        const expected = roundUpToNextHundred(expectedUnrounded)
+        const expected = Math.ceil(expectedUnrounded)
         return {
             expected,
             actual: primary
         }
     }
 
-    calculateJujubes = (harmony, clubBonus, level, monostatCount, tertiary) => {
-        const expectedUnrounded = ((tertiary * 0.5) + ((6 - monostatCount) * Math.ceil(90 + (level * 9.1)))) * clubBonus
-        const expected = roundUpToNextHundred(expectedUnrounded)
+    calculateJujubes = (harmony, clubBonus, level, monostatCount, secondary, tertiary) => {
+        const expectedUnrounded = ((secondary + tertiary) * 0.5 * clubBonus) + ((6 - monostatCount) * Math.ceil(90 + (level * 9.1)))
+        const expected = Math.ceil(expectedUnrounded)
         return {
             expected,
             actual: harmony

@@ -88,7 +88,7 @@ class Results extends React.Component {
         chlorella = this.calculateChlorella(ego, end, girlStatSum)
         cordyceps = this.calculateCordyceps(attack, primary, girlStatSum)
         ginseng = this.calculateGinseng(primary, clubBonus, level, monostatCount)
-        jujubes = this.calculateJujubes(harmony, clubBonus, level, monostatCount, tertiary)
+        jujubes = this.calculateJujubes(harmony, clubBonus, level, monostatCount, secondary, tertiary)
         
         this.setState({
             calculated: true,

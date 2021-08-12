@@ -34,3 +34,9 @@
 .App-link {
   color: #61dafb;
 }
+
+.code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #00000052;
+  padding: 3px;
+}

@@ -54,7 +54,8 @@ class Calculator extends React.Component {
             // alphaCarac: 'CH',
             // alphaOwnStat: 5616,
             playerLeaguesData: null,
-            playerLeaguesDataString: ""
+            playerLeaguesDataString: "",
+            inputValid: false
         }
     }
 
@@ -69,6 +70,7 @@ class Calculator extends React.Component {
         const playerLeaguesDataString = e.target.value
         let playerLeaguesData = null
         const extractedData = {}
+        let inputValid = false
 
         if (playerLeaguesDataString && playerLeaguesDataString.length) {
             try {
@@ -90,6 +92,7 @@ class Calculator extends React.Component {
                     harmony: caracs.chance,
                     girlStatSum: team.map(({caracs}) => Object.values(caracs).reduce((s,c) => s+c, 0)).reduce((s,c) => s+c, 0),
                 })
+                inputValid = true
             } catch (e) {
                 console.error(e)
             }
@@ -100,7 +103,8 @@ class Calculator extends React.Component {
         this.setState({
             playerLeaguesData,
             playerLeaguesDataString,
-            ...extractedData
+            ...extractedData,
+            inputValid
         })
     }
 
@@ -123,7 +127,7 @@ class Calculator extends React.Component {
                 <AlphaStats carac={this.state.carac} alphaCarac={this.state.alphaCarac} alphaMainStat={this.state.alphaMainStat} alphaOwnStat={this.state.alphaOwnStat} classes={classes} onChange={this.onChange} />
                 
             </div> */}
-            <div className={'Calculator-playerLeaguesData'}>
+            <div className={`Calculator-playerLeaguesData ${this.state.inputValid ? 'valid': ''}`}>
                 <textarea onChange={this.onInputBoxChange}></textarea>
             </div>
             <Results stats={this.state}/>

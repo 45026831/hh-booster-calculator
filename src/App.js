@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>HH Booster Calculator</h1>
-        <span>Enter your opponent's stats to calculate their boosters.</span>
+        <span>Enter your opponent's <span class="code">playerLeaguesData</span> to calculate their boosters.</span>
       </header>
       <section className="App-body">
         <Calculator />
